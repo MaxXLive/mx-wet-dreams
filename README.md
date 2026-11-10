@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/icon.png" alt="MX Wet Dreams icon" width="128">
+</p>
+
 <h1 align="center">MX Wet Dreams</h1>
 
 <p align="center">
