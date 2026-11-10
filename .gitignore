@@ -1,0 +1,9 @@
+.gradle/
+build/
+run/
+.idea/
+out/
+*.iml
+
+# Local integration test scripts (hardcoded server paths and tokens)
+test/

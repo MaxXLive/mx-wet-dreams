@@ -1,0 +1,9 @@
+# MX Wet Dreams - this weather makes me sleepy.
+# Lets players sleep in a bed while it rains during the day. At night and during thunderstorms
+# vanilla already allows sleeping, so nothing changes there.
+
+# What happens when enough players (gamerule players_sleeping_percentage) slept through the rain:
+# false: only the rain is skipped, the time of day stays as it is.
+# true:  like a normal night, the time jumps to the next morning (the rest of the day is skipped).
+# The rain only stops if the gamerule advance_weather is on, as in vanilla.
+skip-to-morning: false
