@@ -4,9 +4,3 @@ main: de.ermackov.wetdreams.WetDreamsPlugin
 api-version: '${minecraftVersion}'
 description: This weather makes me sleepy - lets players sleep in a bed while it rains.
 authors: [MaxXLive]
-dependencies:
-  server:
-    MXGuide:
-      load: BEFORE
-      required: false
-      join-classpath: true
