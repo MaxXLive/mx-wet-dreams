@@ -1,0 +1,11 @@
+mxguide:
+  enabled: true
+  id: wetdreams
+  name: MX Wet Dreams
+  description: Bei Regen kann man tagsüber im Bett schlafen
+  priority: 20
+  silent: false
+  message:
+    - "Während es regnet kannst du ins Bett gehen — auch tagsüber."
+    - "Genug Spieler müssen schlafen (Gamerule), damit der Regen aufhört."
+    - "Gewitter funktionieren schon in Vanilla. Dies ergänzt nur normalen Regen."

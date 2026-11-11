@@ -13,5 +13,6 @@ public final class WetDreamsPlugin extends JavaPlugin {
                 ? "Sleeping in rain skips to the next morning"
                 : "Sleeping in rain only skips the rain");
         saveResource("mx-guide.yml", false);
+        saveResource("mx-guide_de_DE.yml", false);
     }
 }
