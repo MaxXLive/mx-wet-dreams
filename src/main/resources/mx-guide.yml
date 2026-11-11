@@ -1,0 +1,14 @@
+# MX Wet Dreams — MX Guide integration
+# This file is copied to the plugin data folder on first run.
+# Edit it there to customize how this plugin appears in /help.
+
+mxguide:
+  enabled: true
+  id: wetdreams
+  name: MX Wet Dreams
+  description: Bei Regen kann man tagsüber im Bett schlafen
+  priority: 20
+  silent: false
+  message:
+    - "While it's raining, enter a bed to sleep through the rain — even during the day."
+    - "Thunderstorms already work in vanilla. This only adds support for regular rain."
