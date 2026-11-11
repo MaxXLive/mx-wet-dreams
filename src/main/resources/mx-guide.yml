@@ -6,7 +6,7 @@ mxguide:
   enabled: true
   id: wetdreams
   name: MX Wet Dreams
-  description: Bei Regen kann man tagsüber im Bett schlafen
+  description: "Sleep in a bed while it rains during the day"
   priority: 20
   silent: false
   message:
