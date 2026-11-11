@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Computes the next release version and its changelog from git tags and commits.
 #
-# Versions follow v<minecraftVersion>-patch-<n>. The patch number continues from the highest existing
-# tag for the current Minecraft version and starts at 1 when minecraftVersion in gradle.properties changes.
+# Versions follow v<minecraftVersion>-NNNN (4-digit zero-padded build number). The build number
+# continues from the highest existing tag and starts at 0001 when minecraftVersion changes.
 #
 # Outputs (written to $GITHUB_OUTPUT when set, otherwise printed):
-#   version    e.g. 26.3-patch-2
-#   tag        e.g. v26.3-patch-2
+#   version    e.g. 26.3-0002
+#   tag        e.g. v26.3-0002
 #   previous   previous tag for this Minecraft version (empty for the first release)
 #   released   "true" if HEAD already carries a release tag (re-run of a finished release)
 #   relevant   "true" if there are commits worth releasing (anything but docs/ci/test/style)
@@ -20,7 +20,7 @@ if [[ -z "$mc_version" ]]; then
 	exit 1
 fi
 
-prefix="v${mc_version}-patch-"
+prefix="v${mc_version}-"
 released=false
 if git tag --points-at HEAD | grep -q "^${prefix}[0-9]\+$"; then
 	released=true
@@ -28,15 +28,15 @@ fi
 
 previous=$(git tag --list "${prefix}*" | grep "^${prefix}[0-9]\+$" | sort -V | tail -n 1 || true)
 if [[ -z "$previous" ]]; then
-	next=1
+	next=$(printf '%04d' 1)
 else
-	next=$(( ${previous#"$prefix"} + 1 ))
+	next=$(printf '%04d' $(( 10#${previous#"$prefix"} + 1 )))
 fi
-version="${mc_version}-patch-${next}"
+version="${mc_version}-${next}"
 tag="v${version}"
 
 # Changelog: commits since the nearest release tag (of any Minecraft version), grouped by conventional commit type.
-last_any=$(git describe --tags --abbrev=0 --match 'v*-patch-*' 2>/dev/null || true)
+last_any=$(git describe --tags --abbrev=0 --match 'v*-[0-9][0-9][0-9][0-9]' 2>/dev/null || true)
 range="HEAD"
 if [[ -n "$last_any" ]]; then
 	range="${last_any}..HEAD"
